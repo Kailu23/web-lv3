@@ -34,7 +34,6 @@ header {
 
 /* Sekcije */
 .content {
-  padding: 40px;
   max-width: 900px;
   margin: auto;
   background: white;
@@ -153,6 +152,11 @@ main {
   gap: 20px;
   background: #f4f4f4;
 }
+.content-location {
+  display: flex;
+  justify-content: flex-end;
+  background: #f4f4f4;
+}
 
 aside {
   width: 30%;
@@ -174,4 +178,30 @@ table {
     order: 2;
     width: 100%;
   }
+}
+#filteri {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  background: #f4f4f4;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#filteri input,
+#filteri select {
+  width: auto;
+  padding: 8px;
+}
+
+#filteri button {
+  width: auto;
+  padding: 8px 15px;
 }

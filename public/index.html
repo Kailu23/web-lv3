@@ -45,6 +45,28 @@
     <main>
       <h1>Popis filmova</h1>
 
+      <div id="filteri">
+        <input type="text" id="filter-naziv" placeholder="Pretrazi naslov" />
+
+        <select id="filter-zanr">
+          <option value="">Svi zanrovi</option>
+          <option value="Action">Action</option>
+          <option value="Drama">Drama</option>
+          <option value="Comedy">Comedy</option>
+        </select>
+
+        <input
+          type="range"
+          id="filter-ocjena"
+          min="0"
+          max="10"
+          step="0.1"
+          value="5"
+        />
+        <span id="ocjena-value">5</span>
+
+        <button id="filtriraj-btn">Filtriraj</button>
+      </div>
       <div class="content">
         <!-- TABLICA -->
         <table aria-label="Popis filmova" id="filmovi-tablica">
@@ -59,6 +81,8 @@
           </thead>
           <tbody></tbody>
         </table>
+      </div>
+      <div class="content-location">
         <aside aria-label="Lokacija">
           <h2>Karta lokacije</h2>
 
