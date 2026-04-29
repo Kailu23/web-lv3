@@ -1,4 +1,5 @@
 let sviFilmovi = [];
+let kosarica = [];
 
 fetch('/filmovi.csv')
     .then(res => res.text())
@@ -33,9 +34,14 @@ function prikaziTablicu(filmovi) {
       <td>${film.genre}</td>
       <td>${film.duration}</td>
       <td>${film.rating}</td>
+      <td><button>Dodaj</button></td>
     `;
 
         tbody.appendChild(row);
+
+        row.querySelector("button").addEventListener("click", () => {
+            dodajUKosaricu(film);
+        });
     });
 }
 
@@ -61,5 +67,38 @@ const slider = document.getElementById("filter-ocjena");
 const output = document.getElementById("ocjena-value");
 
 slider.addEventListener("input", () => {
-  output.textContent = slider.value;
+    output.textContent = slider.value;
+});
+
+function dodajUKosaricu(film) {
+    if (!kosarica.includes(film)) {
+        kosarica.push(film);
+        osvjeziKosaricu();
+    }
+}
+
+function osvjeziKosaricu() {
+    const lista = document.getElementById("lista-kosarice");
+    lista.innerHTML = "";
+
+    kosarica.forEach((film, index) => {
+        const li = document.createElement("li");
+        li.textContent = film.title;
+
+        const btn = document.createElement("button");
+        btn.textContent = "X";
+        btn.onclick = () => {
+            kosarica.splice(index, 1);
+            osvjeziKosaricu();
+        };
+
+        li.appendChild(btn);
+        lista.appendChild(li);
+    });
+}
+
+document.getElementById("potvrdi").addEventListener("click", () => {
+    alert(`Dodano ${kosarica.length} filmova!`);
+    kosarica = [];
+    osvjeziKosaricu();
 });

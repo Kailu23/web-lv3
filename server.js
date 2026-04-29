@@ -9,7 +9,13 @@ app.use(express.static('public')); // "posluzuje" index.html
 
 // Automatski koristi sve iz mape public
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
+    const dataPath = path.join(__dirname, 'public', 'filmovi.csv');
+    const csv = fs.readFileSync(dataPath, 'utf8');
+
+    const Papa = require('papaparse');
+    const rezultat = Papa.parse(csv, { header: true });
+
+    res.render('index', { filmovi: rezultat.data });
 });
 app.get('/galerija', (req, res) => {
     const dataPath = path.join(__dirname, 'images.json');

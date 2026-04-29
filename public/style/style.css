@@ -205,3 +205,72 @@ table {
   width: auto;
   padding: 8px 15px;
 }
+#kosarica {
+  max-width: 400px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+#lista-kosarice {
+  list-style: none;
+  padding: 0;
+}
+
+#lista-kosarice li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s;
+
+  background: #3498db;
+  color: white;
+
+  padding: 8px 12px;
+  margin: 8px 0;
+
+  border-radius: 6px;
+}
+
+#lista-kosarice li:hover {
+    transform: scale(1.02);
+}
+
+
+#lista-kosarice button {
+  width: auto;
+  padding: 4px 8px;
+  margin-left: 10px;
+
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#lista-kosarice button:hover {
+  color: #ddd;
+}
+
+/* POTVRDI GUMB */
+#potvrdi {
+  width: auto;
+  padding: 10px 20px;
+  margin-top: 10px;
+}
+
+#filmovi-tablica button {
+    width: auto;
+    padding: 5px 10px;
+    font-size: 14px;
+
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#filmovi-tablica button:hover {
+    background-color: #2980b9;
+}
